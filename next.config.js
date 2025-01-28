@@ -4,9 +4,6 @@
 const nextConfig = {
 	trailingSlash: true,
 	reactStrictMode: false,
-	typescript: {
-		ignoreBuildErrors: true,
-	},
 	eslint: {
 		ignoreDuringBuilds: true,
 	},
