@@ -30,7 +30,7 @@ const Navigations = (props: INavigations) => {
 			<p className={styles.pages}>{`${currenEvent + 1}/${events.length}`}</p>
 			<div className={styles.actions}>
 				<Button
-					iconName={type === 'mobile' ?'chevron-s' : 'chevron'}
+					iconName={type === 'mobile' ? 'chevron-s' : 'chevron'}
 					onClick={handlePrevClick}
 					size={type === 'mobile' ? 'small' : 'normal'}
 					className={styles.prev}
@@ -38,7 +38,7 @@ const Navigations = (props: INavigations) => {
 					disabled={currenEvent === 0}
 				/>
 				<Button
-					iconName={type === 'mobile' ?'chevron-s' : 'chevron'}
+					iconName={type === 'mobile' ? 'chevron-s' : 'chevron'}
 					onClick={handleNextClick}
 					size={type === 'mobile' ? 'small' : 'normal'}
 					className={styles.next}

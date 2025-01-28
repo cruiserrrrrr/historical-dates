@@ -6,14 +6,14 @@ interface IPagination {
 	handler: (i: number) => void;
 }
 
-const Pagination = (props:IPagination) => {
+const Pagination = (props: IPagination) => {
 	
-	const {activeIndex = 0, handler} = props;
+	const { activeIndex = 0, handler } = props;
 	
 	const handleClick = (i: number) => {
 		// dispatch(setCurrentEvent(i))
-		handler(i)
-	}
+		handler(i);
+	};
 	
 	return (
 		<div className={styles.pagination}>

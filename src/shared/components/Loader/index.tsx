@@ -12,7 +12,7 @@ const Loader = (props: ILoader) => {
 	const [isReady, setIsReady] = useState<boolean>(false);
 	
 	useEffect(() => {
-		if(!load) return;
+		if (!load) return;
 		if (load) {
 			setTimeout(() => {
 				setIsReady(true);

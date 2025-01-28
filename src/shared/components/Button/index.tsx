@@ -19,7 +19,7 @@ const Button = (props: IButton) => {
 		className = '',
 		iconClassName = '',
 		onClick,
-		disabled = false
+		disabled = false,
 	} = props;
 	
 	return (
