@@ -113,7 +113,7 @@ const SwiperEvents = () => {
 						</SwiperSlide>
 					))}
 				</Swiper>
-				{!isStart ? (
+				{!isStart && !isMobile ? (
 					<Button
 						iconName={'chevron'}
 						size={'medium'}
@@ -123,7 +123,7 @@ const SwiperEvents = () => {
 						iconClassName={styles.action_icon}
 					/>
 				) : null}
-				{!isEnd ? (
+				{!isEnd && !isMobile ? (
 					<Button
 						iconName={'chevron'}
 						size={'medium'}
