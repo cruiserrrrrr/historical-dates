@@ -40,7 +40,6 @@ const CircleTimeline = (props: ICircleTimeline) => {
 		
 		dispatch(setCurrentEvent(index));
 		setTimeout(() => {
-			console.log('false');
 			setDisabled(false);
 			setLoading(true);
 		}, 2000);

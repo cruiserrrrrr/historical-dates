@@ -1,7 +1,5 @@
 import styles from './index.module.scss';
 import events from '@/shared/data/historical_events.json';
-import { useAppDispatch, useAppSelector } from '@/shared/hooks/reduxHooks';
-import { getCurrentEvent, setCurrentEvent } from '@/services/redux/slices/eventsSlice';
 
 interface IPagination {
 	activeIndex: number;
@@ -11,9 +9,6 @@ interface IPagination {
 const Pagination = (props:IPagination) => {
 	
 	const {activeIndex = 0, handler} = props;
-	
-	const currentEvent = useAppSelector(getCurrentEvent);
-	const dispatch = useAppDispatch();
 	
 	const handleClick = (i: number) => {
 		// dispatch(setCurrentEvent(i))

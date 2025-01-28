@@ -1,6 +1,4 @@
 import styles from './index.module.scss';
-import useMediaQuery from '@/shared/hooks/useMediaQuery';
-import Icon from '@/shared/components/Icon';
 import { useAppDispatch, useAppSelector } from '@/shared/hooks/reduxHooks';
 import { getCurrentEvent, setCurrentEvent } from '@/services/redux/slices/eventsSlice';
 import events from '@/shared/data/historical_events.json';

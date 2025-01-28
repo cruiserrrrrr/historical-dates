@@ -15,7 +15,6 @@ import Button from '@/shared/components/Button';
 import Navigations from '@/shared/components/Navigations';
 import useMediaQuery from '@/shared/hooks/useMediaQuery';
 import Loader from '@/shared/components/Loader';
-// import Pagination from '@/shared/components/Pagination';
 
 const SwiperEvents = () => {
 	
@@ -57,7 +56,6 @@ const SwiperEvents = () => {
 	};
 	
 	const handlePrev = () => {
-		console.log('prev', swiperRef);
 		if (swiperRef.current) {
 			swiperRef.current.swiper.slidePrev();
 		}
@@ -65,13 +63,11 @@ const SwiperEvents = () => {
 	
 	const handleNext = () => {
 		if (swiperRef.current) {
-			console.log('next');
 			swiperRef.current.swiper.slideNext();
 		}
 	};
 	
 	const updateNavigationState = (swiper: SwiperType) => {
-		console.log(swiper, 'swiper');
 		setIsEnd(swiper.isEnd);
 		setIsStart(swiper.activeIndex === 0);
 	};
@@ -96,18 +92,14 @@ const SwiperEvents = () => {
 					spaceBetween={80}
 					modules={[Pagination]}
 					className={styles.swiper}
-					// style={{ overflow: 'hidden' }}
 					onSlideChange={(swiper) => {
-						console.log(swiper.activeIndex, 'swiper.activeIndex');
 						slideChange(swiper.activeIndex);
 						updateNavigationState(swiper);
 					}}
 					onSwiper={(swiper) => {
-						console.log('change');
 						setIsLoad(true);
 						updateNavigationState(swiper);
 					}}
-					// slidesOffsetAfter={isMobile ? 0 : 300}
 					ref={swiperRef}
 				>
 					{events.map((event, i) => (
