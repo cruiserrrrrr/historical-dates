@@ -14,6 +14,7 @@ import './swiper.scss';
 import Button from '@/shared/components/Button';
 import Navigations from '@/shared/components/Navigations';
 import useMediaQuery from '@/shared/hooks/useMediaQuery';
+import Loader from '@/shared/components/Loader';
 // import Pagination from '@/shared/components/Pagination';
 
 const SwiperEvents = () => {
@@ -29,8 +30,12 @@ const SwiperEvents = () => {
 	const swiperRef = useRef<SwiperRef>(null);
 	const [isLoad, setIsLoad] = useState<boolean>(false);
 	const isMobile = useMediaQuery(768, 'max');
+	const [eventName, setEventName] = useState<string>(data[0].name);
 	
 	useEffect(() => {
+		if (swiperRef.current) {
+			swiperRef.current.swiper.slideTo(0);
+		}
 		if (currentIndex !== displayIndex) {
 			setIsFading(true);
 			
@@ -39,6 +44,7 @@ const SwiperEvents = () => {
 				setTimeout(() => {
 					setIsFading(false);
 					setEvents(data[currentIndex].events);
+					setEventName(data[currentIndex].name);
 				}, 1600);
 			}, 300);
 			
@@ -74,8 +80,14 @@ const SwiperEvents = () => {
 		<div
 			className={`${styles.swiper_events}`}
 		>
+			<Loader load={isLoad} />
 			<Navigations type={'desktop'} />
-			<div className={`${styles.container} ${isLoad || isFading ? styles.fade_out : styles.fade_in}`}>
+			{isMobile ? (
+				<p className={`${styles.mobile_name} ${isFading ? styles.fade_out : styles.fade_in}`}>
+					{eventName}
+				</p>
+			) : null}
+			<div className={`${styles.container} ${isFading ? styles.fade_out : styles.fade_in}`}>
 				<Swiper
 					direction={'horizontal'}
 					navigation
@@ -84,7 +96,7 @@ const SwiperEvents = () => {
 					spaceBetween={80}
 					modules={[Pagination]}
 					className={styles.swiper}
-					style={{ overflow: 'hidden' }}
+					// style={{ overflow: 'hidden' }}
 					onSlideChange={(swiper) => {
 						console.log(swiper.activeIndex, 'swiper.activeIndex');
 						slideChange(swiper.activeIndex);
@@ -92,18 +104,17 @@ const SwiperEvents = () => {
 					}}
 					onSwiper={(swiper) => {
 						console.log('change');
+						setIsLoad(true);
 						updateNavigationState(swiper);
 					}}
-					// centeredSlides={!!isMobile}
-					// slidesOffsetAfter={isMobile ? 0 : 10}
-					slidesOffsetAfter={isMobile ? 0 : 10}
+					// slidesOffsetAfter={isMobile ? 0 : 300}
 					ref={swiperRef}
 				>
 					{events.map((event, i) => (
 						<SwiperSlide
 							key={i}
 							style={{
-								maxWidth: i === events.length - 1 ? '100%' : '166px',
+								maxWidth: i === events.length - 1 ? '100%' : isMobile ? '166px' : '320px',
 							}}
 						>
 							<Slide slide={event} key={i} isActive={i === activeSlide} />

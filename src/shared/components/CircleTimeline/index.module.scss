@@ -6,7 +6,6 @@
   top: 20%;
   left: 50%;
   transform: translateX(-50%);
-  //transform: translate(-50%, -50%);
   z-index: 2;
 
   .container {
@@ -93,7 +92,6 @@
             transform: translateY(-50%);
             opacity: 0;
             @include ff("PT Sans", 20px, 700);
-            //line-height: 30px;
 
             &.active {
               opacity: 1;
@@ -131,7 +129,7 @@
   }
 
   @media screen and (max-width: 768px) {
-    margin-top: auto;
+    margin-top: calc(18svh + 20px);
     position: relative;
     top: unset;
     left: unset;
