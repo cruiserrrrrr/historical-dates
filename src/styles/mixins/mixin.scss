@@ -1,0 +1,6 @@
+@mixin ff($font-family, $size, $weight: 400) {
+  font-family: $font-family, sans-serif;
+  font-size: $size;
+  font-weight: $weight;
+  font-display: swap;
+}

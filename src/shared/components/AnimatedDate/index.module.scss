@@ -1,0 +1,26 @@
+@import "@/styles/mixins/mixin";
+
+.date {
+  display: flex;
+  flex-direction: row;
+  @include ff("PT Sans", 200px, 700);
+  line-height: 1;
+  white-space: nowrap;
+
+  &.blue {
+    color: var(--blue);
+  }
+
+  &.pink {
+    color: var(--pink-magenta);
+  }
+
+  @media screen and (max-width: 1024px) {
+    @include ff("PT Sans", 120px, 700);
+  }
+
+  @media screen and (max-width: 768px) {
+    @include ff("PT Sans", 56px, 700);
+    line-height: 72px;
+  }
+}

@@ -1,0 +1,37 @@
+.swiper {
+  background-color: transparent;
+  position: relative;
+  overflow: visible !important;
+
+  &-slide {
+    max-width: 320px;
+    user-select: none;
+
+    @media screen and (max-width: 768px) {
+      max-width: 166px;
+    }
+  }
+
+  &-pagination {
+    display: none;
+    position: relative;
+
+    &-bullet {
+      width: 6px;
+      height: 6px;
+      background-color: var(--dark-blue);
+      transition: all 0.3s;
+      opacity: .4;
+
+      &-active {
+        opacity: 1;
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      margin-top: 58px;
+      display: block;
+      bottom: -30px !important;
+    }
+  }
+}

@@ -1,0 +1,21 @@
+.pagination {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+
+  .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--dark-blue);
+    transition: all 0.3s;
+    opacity: .4;
+    border: none;
+
+    &.active {
+      opacity: 1;
+    }
+  }
+}

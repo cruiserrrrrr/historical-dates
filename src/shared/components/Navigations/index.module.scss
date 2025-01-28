@@ -1,0 +1,37 @@
+@import "@/styles/mixins/mixin";
+
+.navigations {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-right: auto;
+
+  .pages {
+    @include ff("PT Sans", 14px, 400);
+  }
+
+  .actions {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+
+    .next {
+      .icon {
+        transform: rotate(-180deg);
+      }
+    }
+  }
+
+  &.desktop {
+    @media screen and (max-width: 768px) {
+      display: none;
+    }
+  }
+
+  &.mobile {
+    @media screen and (min-width: 768px) {
+      display: none;
+    }
+  }
+}
