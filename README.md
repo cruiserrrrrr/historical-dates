@@ -1,3 +1,9 @@
+This is a [Next.js](https://nextjs.org).
+
+## Getting Started
+
+run the server:
+
 ```bash
 npm install
 #=>
